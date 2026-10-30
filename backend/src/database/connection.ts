@@ -22,11 +22,13 @@ import { token } from '../models/token'; // Ajustez le chemin vers votre modèle
 
 export const connection = new Sequelize({
   dialect: 'mysql', 
-  host: 'localhost',      // Votre serveur est sur votre machine
-  port: 3306,             // Le port par défaut de MySQL
-  username: 'root',       // Votre utilisateur MySQL (souvent 'root')
-  password: 'Mysql@2026', // Le mot de passe défini à l'installation de MySQL Server
-  database: 'blog',      // Le nom du schéma créé à l'étape 2
+
+  host: process.env.DB_HOST!,      // Votre serveur est sur votre machine
+  username: process.env.DB_USER!,       // Votre utilisateur MySQL (souvent 'root')
+  password: process.env.DB_PASSWORD!, // Le mot de passe défini à l'installation de MySQL Server
+  database: process.env.DB_NAME!,      // Le nom du schéma créé à l'étape 2
+  port: Number(process.env.DB_PORT) || 3306,   // Le port par défaut de MySQL
+
   models: [user, category, post, comment, tag, postTag, token], // Vos modèles Sequelize-TypeScript models: [user], 
   logging: console.log,   // Permet de voir les requêtes SQL dans le terminal
 });
