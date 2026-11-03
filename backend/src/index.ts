@@ -1,10 +1,9 @@
-import dotenv from 'dotenv';
-dotenv.config();
 
 import express from 'express';
 
 import { connection } from './database/connection';
 import categoryRoutes from './routes/category.routes';
+//import path from 'node:path';
 
 
 // Affichage de l'interface Admin
@@ -52,14 +51,14 @@ async function startServer() {
    // alter: true pour le développement et Migration pour la production
 
    // alter: true va modifier les tables existantes pour ajouter les nouvelles colonnes
-   //await connection.sync({ alter: true });
-   //console.log(' Les tables ont été synchronisées et mises à jour avec succès.');
+   await connection.sync({ alter: true });
+   console.log(' Les tables ont été synchronisées et mises à jour avec succès.');
 
 
 
 // force: true va supprimer l'ancienne table cassée et recréer la nouvelle proprement
-await connection.sync({ force: true });
-console.log(' Les tables ont été recréées proprement !');
+//await connection.sync({ force: true });
+//console.log(' Les tables ont été recréées proprement !');
 
 
 

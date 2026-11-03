@@ -1,6 +1,7 @@
-import { Column, DataType, Table, Model, BelongsToMany} from "sequelize-typescript";
+import { Column, DataType, Table, Model, BelongsToMany, ForeignKey, BelongsTo} from "sequelize-typescript";
 import { post } from "./post";
 import { postTag } from "./postTag";
+import { user } from "./user";
 
 
 @Table
@@ -13,7 +14,19 @@ export class tag extends Model<tag>{
     name?: string;
 
 
+    @ForeignKey(()=>user)
+        @Column({
+            type: DataType.INTEGER,
+            allowNull: false
+        })
+        userId?: number
+
+
     @BelongsToMany(()=>post, ()=>postTag)
-    posts: post[] = []
+        posts: post[] = []
+
+
+    @BelongsTo(()=>user)
+    user?: user;
 
 }

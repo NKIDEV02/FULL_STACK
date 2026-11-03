@@ -8,14 +8,16 @@ export class postTag extends Model<postTag>{
 
     @ForeignKey(()=>post)
     @Column({
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
+        allowNull: false
     })
     postId?: number
 
     
     @ForeignKey(()=>tag)
     @Column({
-        type: DataType.INTEGER
+        type: DataType.INTEGER,
+        allowNull: false
     })
     tagId?: number
 }

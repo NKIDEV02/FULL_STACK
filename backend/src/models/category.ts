@@ -1,8 +1,8 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column,ForeignKey, DataType, Model, Table, BelongsTo } from "sequelize-typescript";
+import { user } from "./user";
 
 @Table
 export class category extends Model<category>{
-
 
 
     @Column({
@@ -17,5 +17,17 @@ export class category extends Model<category>{
         unique: true
     })
     slug:string = ""
+
+
+
+  @ForeignKey(()=>user)
+        @Column({
+            type: DataType.INTEGER,
+            allowNull: false
+        })
+        userId?: number
+
+    @BelongsTo(()=>user)
+    user?: user;
 
 }

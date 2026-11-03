@@ -6,23 +6,29 @@ import { user } from "./user";
 export class token extends Model<token>{
 
     @Column({
-        type:DataType.STRING
+        type:DataType.STRING,
+        allowNull: false
     })
     token?: string;
 
+    
+    @Column({
+        type:DataType.ENUM("activation", "reset"),
+        allowNull: false
+    })
+    type?: "activation" | "reset";
+
+
+
     @ForeignKey(()=>user)
     @Column({
-        type:DataType.INTEGER
+        type:DataType.INTEGER,
+        allowNull: false
     })
     userId?: number
 
     @BelongsTo(()=>user)
     user?: user;
-
-    @Column({
-        type:DataType.ENUM("activation", "reset")
-    })
-    type?: "activation" | "reset";
 
 
 }
