@@ -9,21 +9,21 @@ import { tag } from "./tag";
 export class user extends Model<user> {
 
     @Column(DataType.STRING) 
-    name: string = ''
+    declare name: string;
 
     @Column({
        type:DataType.STRING,
         unique:true,
         allowNull: false
     }) 
-    email: string = ''
+    declare email: string;
 
     @Column({
         type:DataType.STRING,
         allowNull: false
 
      }) 
-    password: string = ''
+    declare password: string;
 
 
     //un user peut avoir plusieurs posts (user 1-n post)

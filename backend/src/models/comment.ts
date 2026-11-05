@@ -10,25 +10,25 @@ export class comment extends Model<comment>{
         type:DataType.STRING,
         allowNull: false
     })
-    content : string = ""
+    declare content : string;
     
     @ForeignKey(()=>user)
     @Column({
         type: DataType.INTEGER,
         allowNull: false
     })
-    userId?: number
+    declare userId?: number;
 
     @ForeignKey(()=>post)
     @Column({
         type: DataType.INTEGER,
         allowNull: false
     })
-    postId?: number
+    declare postId?: number;
 
     @BelongsTo(()=>post)
-    post?: post; 
+    declare post?: post; 
 
     @BelongsTo(()=>user)
-    user?: user;
+    declare user?: user;
 }

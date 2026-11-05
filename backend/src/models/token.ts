@@ -9,7 +9,7 @@ export class token extends Model<token>{
         type:DataType.STRING,
         allowNull: false
     })
-    token?: string;
+    declare token?: string;
 
     
     @Column({
@@ -25,10 +25,10 @@ export class token extends Model<token>{
         type:DataType.INTEGER,
         allowNull: false
     })
-    userId?: number
+    declare userId?: number;
 
     @BelongsTo(()=>user)
-    user?: user;
+    declare user?: user;
 
 
 }

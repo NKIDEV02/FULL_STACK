@@ -11,7 +11,7 @@ export class postTag extends Model<postTag>{
         type: DataType.INTEGER,
         allowNull: false
     })
-    postId?: number
+    declare postId?: number;
 
     
     @ForeignKey(()=>tag)
@@ -19,5 +19,5 @@ export class postTag extends Model<postTag>{
         type: DataType.INTEGER,
         allowNull: false
     })
-    tagId?: number
+    declare tagId?: number;
 }

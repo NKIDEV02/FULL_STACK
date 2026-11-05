@@ -11,7 +11,7 @@ export class tag extends Model<tag>{
         type:DataType.STRING,
         allowNull: false
     })
-    name?: string;
+    declare name?: string;
 
 
     @ForeignKey(()=>user)
@@ -19,7 +19,7 @@ export class tag extends Model<tag>{
             type: DataType.INTEGER,
             allowNull: false
         })
-        userId?: number
+    declare userId?: number;
 
 
     @BelongsToMany(()=>post, ()=>postTag)
@@ -27,6 +27,6 @@ export class tag extends Model<tag>{
 
 
     @BelongsTo(()=>user)
-    user?: user;
+    declare user?: user;
 
 }

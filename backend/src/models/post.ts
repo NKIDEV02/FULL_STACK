@@ -11,20 +11,20 @@ export class post extends Model<post>{
         type:DataType.STRING,
         allowNull: false
     })
-    title: string=""
+    declare title: string;
 
     @Column({
         type:DataType.STRING,
         allowNull: false
     })
-    content: string=""
+    declare content: string;
 
     @Column({
         type:DataType.STRING,
         allowNull: false,
         unique: true
     })
-    slug:string = ""
+    declare slug:string;
 
 
     @ForeignKey(()=>user)
@@ -32,11 +32,11 @@ export class post extends Model<post>{
         type:DataType.INTEGER,
         allowNull: false
     })
-    userId?: number;
+    declare userId?: number;
 
 
     @BelongsTo(()=>user)
-    user?: user;
+    declare user?: user;
 
     //un post peut avoir plusieurs comment (post 1-n comment)
     @HasMany(()=>comment)

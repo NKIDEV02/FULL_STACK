@@ -9,14 +9,14 @@ export class category extends Model<category>{
         type:DataType.STRING,
         allowNull: false
     })
-    name:string = ""
+    declare name: string; // ✅ Correction : 'declare' et pas de '= ""'
 
     @Column({
         type:DataType.STRING,
         allowNull: false,
         unique: true
     })
-    slug:string = ""
+   declare slug: string; // ✅ Correction : 'declare' et pas de '= ""'
 
 
 
@@ -25,9 +25,9 @@ export class category extends Model<category>{
             type: DataType.INTEGER,
             allowNull: false
         })
-        userId?: number
+    declare userId: number; // ✅ Correction : 'declare'
 
     @BelongsTo(()=>user)
-    user?: user;
-
+    declare user?: user; // ✅ Correction : 'declare'
+ 
 }
