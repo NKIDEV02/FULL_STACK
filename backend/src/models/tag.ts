@@ -13,6 +13,14 @@ export class tag extends Model<tag>{
     })
     declare name?: string;
 
+    @Column({
+        type:DataType.STRING,
+        allowNull: false,
+        unique: true
+    })
+   declare slug: string; // ✅ Correction : 'declare' et pas de '= ""'
+
+
 
     @ForeignKey(()=>user)
         @Column({
