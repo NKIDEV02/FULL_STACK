@@ -4,6 +4,7 @@ import express from 'express';
 import { connection } from './database/connection';
 import categoryRoutes from './routes/category.routes';
 import tagRoutes from './routes/tag.routes';
+import postRoutes from './routes/post.routes';
 //import path from 'node:path';
 
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/api/categories', categoryRoutes); 
 app.use('/api/tags', tagRoutes);
+app.use('/api/posts', postRoutes);
 
 
 

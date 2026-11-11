@@ -43,3 +43,12 @@ export const deleteTag = (id: number)=>{
           }
      })
 }
+
+
+export const getTagsByIds = (ids: number[])=>{
+     return tag.findAll({
+          where:{
+               id: ids
+          }
+     })
+}

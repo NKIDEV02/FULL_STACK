@@ -3,6 +3,7 @@ import { user } from "./user";
 import { comment } from "./comment";
 import { tag } from "./tag";
 import { postTag } from "./postTag";
+import { category } from "./category";
 
 @Table
 export class post extends Model<post>{
@@ -35,8 +36,19 @@ export class post extends Model<post>{
     declare userId?: number;
 
 
+    @ForeignKey(()=>category)
+    @Column({
+        type:DataType.INTEGER,
+        allowNull: false
+    })
+    declare categoryId?: number;
+
+
     @BelongsTo(()=>user)
     declare user?: user;
+
+    @BelongsTo(()=>category)
+    declare category?: category;
 
     //un post peut avoir plusieurs comment (post 1-n comment)
     @HasMany(()=>comment)
