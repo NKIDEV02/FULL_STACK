@@ -7,6 +7,9 @@ import { tag } from "./tag";
 
 @Table
 export class user extends Model<user> {
+    static get(arg0: string) {
+      throw new Error('Method not implemented.');
+    }
 
     @Column(DataType.STRING) 
     declare name: string;

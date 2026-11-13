@@ -25,13 +25,13 @@ app.use('/api/comments', commentRoutes);
 
 
 
-
-
 app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`)
 });
 
 
+// in Terminal then node and now this command :
+// console.log(require("crypto").randomBytes(64).toString("base64"));
 
 
 
