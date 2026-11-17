@@ -7,13 +7,22 @@ const secretKey = process.env.JWT_SECRET!; // Replace with my secret key in prod
 
 
 // Generation du token
-export function generateToken(userId: number): string{
+export function generateToken(userId: number, expiresIn='1'): string{
   const payLoad = { userId};
   const token = jwt.sign(payLoad, secretKey, { 
     expiresIn: '1h' 
   });
 
   return token;
+
+}
+
+
+// Encryption of password
+export function encryptPassword(password: string): string{
+  const encryptedPassword = jwt.sign(password, secretKey);
+
+  return encryptedPassword;
 
 }
 
@@ -36,7 +45,7 @@ export function verifyToken(token: string){
 export function authenticateJWT(req: Request, res: Response, next: NextFunction){
   const token = req.header('Authorization')?.replace('Bearer', '');
   if(!token){
-    return res.status(401).json({ message: 'Token not provided' });
+    return res.status(401).json({ message: 'Access Denied. Token is not provided.' });
   }
 
   const decoded = verifyToken(token);

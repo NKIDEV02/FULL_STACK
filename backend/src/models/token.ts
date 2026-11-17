@@ -1,9 +1,10 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { user } from "./user";
+import { access } from "node:fs";
 
 
-@Table
-export class token extends Model<token>{
+@Table //({ tableName: 'tokens' }) // <-- Indispensable pour sequelize-typescript
+export class Token extends Model<Token>{
 
     @Column({
         type:DataType.STRING,
@@ -13,10 +14,10 @@ export class token extends Model<token>{
 
     
     @Column({
-        type:DataType.ENUM("activation", "reset"),
+        type:DataType.ENUM("activation", "reset", 'access', 'refresh'),
         allowNull: false
     })
-    type?: "activation" | "reset";
+    declare type?: "activation" | "reset" | "access" | "refresh";
 
 
 
@@ -25,7 +26,7 @@ export class token extends Model<token>{
         type:DataType.INTEGER,
         allowNull: false
     })
-    declare userId?: number;
+    declare userId: number;
 
     @BelongsTo(()=>user)
     declare user?: user;

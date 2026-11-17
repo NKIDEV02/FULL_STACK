@@ -6,6 +6,7 @@ import categoryRoutes from './routes/category.routes';
 import tagRoutes from './routes/tag.routes';
 import postRoutes from './routes/post.routes';
 import commentRoutes from './routes/comment.routes';
+import authRoutes from './routes/auth.routes';
 //import path from 'node:path';
 
 
@@ -22,6 +23,9 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/tags', tagRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/comments', commentRoutes);
+
+// Authentication client
+app.use('/api/auth', authRoutes)
 
 
 
