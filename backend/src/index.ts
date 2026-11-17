@@ -1,5 +1,5 @@
 
-import express from 'express';
+import express, { Request, Response} from 'express';
 
 import { connection } from './database/connection';
 import categoryRoutes from './routes/category.routes';
@@ -7,6 +7,8 @@ import tagRoutes from './routes/tag.routes';
 import postRoutes from './routes/post.routes';
 import commentRoutes from './routes/comment.routes';
 import authRoutes from './routes/auth.routes';
+import logger from './shared/logger.util';
+import { category } from './models/category';
 //import path from 'node:path';
 
 
@@ -18,6 +20,16 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
+// handle error with Express.js 
+app.get('/', async(req: Request, res: Response) =>{
+  
+  // @ts-ignore 
+  await category.findAll();
+  res.send('hello-world')
+
+} )
+
+
 
 app.use('/api/categories', categoryRoutes); 
 app.use('/api/tags', tagRoutes);
@@ -26,6 +38,14 @@ app.use('/api/comments', commentRoutes);
 
 // Authentication client
 app.use('/api/auth', authRoutes)
+
+app.use((err: Error, req: Request, res: Response, next: any) =>{
+  logger.error({
+    message:err.message, stack: err.stack
+  });
+
+  res.status(500).send('Something went wrong');
+})
 
 
 
