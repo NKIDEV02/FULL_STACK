@@ -39,6 +39,7 @@ app.use('/api/comments', commentRoutes);
 // Authentication client
 app.use('/api/auth', authRoutes)
 
+// change the error message for the client 
 app.use((err: Error, req: Request, res: Response, next: any) =>{
   logger.error({
     message:err.message, stack: err.stack
