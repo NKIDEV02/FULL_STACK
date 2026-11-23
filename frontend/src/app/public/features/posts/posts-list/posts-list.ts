@@ -1,9 +1,41 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
-  selector: 'app-posts-list',
-  styleUrl: './posts-list.css',
-  templateUrl: './posts-list.html',
+    selector: 'app-posts-list',
+    standalone: true,
+    imports: [
+      RouterLink
+    ],
+   templateUrl: './posts-list.html',
+  styleUrl: './posts-list.css'
 })
-export class PostsList {}
+export class PostsList {
+  posts = [
+    {
+    id: 1,
+    title: 'Post 1',
+    content: 'This is the content of post 1',
+    createdAt: new Date()
+  },
+  {
+    id: 2,
+    title: 'Post 2',
+    content: 'This is the content of post 2',
+    createdAt: new Date()
+  },
+  {
+    id: 3,
+    title: 'Post 3',
+    content: 'This is the content of post 3',
+    createdAt: new Date()
+  },
+  {
+    id: 4,
+    title: 'Post 4',
+    content: 'This is the content of post 4',
+    createdAt: new Date()
+  },
+  
+  ]
+}
