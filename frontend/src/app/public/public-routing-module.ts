@@ -8,6 +8,14 @@ const routes: Routes = [
     {
       path: '', loadChildren:()=> import('./features/posts/posts-module').then(m => m.PostsModule)
     },
+     {
+      path: 'tags', 
+      loadChildren:()=> import('./features/tags/tags-module').then(m => m.TagsModule)
+    },
+     {
+      path: 'categories', 
+      loadChildren:()=> import('./features/categories/categories-module').then(m => m.CategoriesModule)
+    }
   ],
 },
 ];

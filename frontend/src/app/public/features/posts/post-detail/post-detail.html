@@ -1,1 +1,91 @@
-<p>post-detail works!</p>
+<h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Inventore, iste expedita molestiae.</h1>
+
+
+    <!-- display category and date -->
+
+ <div class="flex justify-between mb-10">
+       <p>Category: <a [routerLink]="['/categories', 'hello world']"><strong> Hello World </strong></a></p>
+    <p>Created: <strong> 24-11-2026 </strong></p>
+ </div>
+
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti earum at, laudantium commodi ipsa magni in possimus explicabo fugit officiis nemo architecto dignissimos vitae molestias odio dolor tempora, ullam aut.
+    Eius nam exercitationem esse ut aliquid pariatur unde placeat? Error sunt consequatur tempora dicta! Consectetur error odit qui nihil velit in at nam minima! Sint nesciunt consequuntur officia veritatis neque! <br>
+    Amet, possimus nesciunt vitae impedit autem accusantium eaque dolore! Rem provident aut cumque pariatur officiis optio molestiae, molestias, atque animi obcaecati vitae sapiente nostrum suscipit modi accusantium error distinctio natus.
+    Magni dolor maiores et perspiciatis quae ab sit saepe nisi cupiditate aut, quasi, quos totam asperiores voluptatum alias! Alias dolorem debitis eligendi nobis ipsum quo at aspernatur tempora fugiat doloribus. <br>
+    Sequi neque quia id, voluptatem inventore nulla hic aperiam qui alias minus voluptatibus beatae exercitationem, fugit reprehenderit reiciendis aut cumque, ipsa dolores? Possimus totam quasi unde facere ipsum in eveniet.</p>
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti earum at, laudantium commodi ipsa magni in possimus explicabo fugit officiis nemo architecto dignissimos vitae molestias odio dolor tempora, ullam aut.
+    Eius nam exercitationem esse ut aliquid pariatur unde placeat? Error sunt consequatur tempora dicta! Consectetur error odit qui nihil velit in at nam minima! Sint nesciunt consequuntur officia veritatis neque! <br>
+    Amet, possimus nesciunt vitae impedit autem accusantium eaque dolore! Rem provident aut cumque pariatur officiis optio molestiae, molestias, atque animi obcaecati vitae sapiente nostrum suscipit modi accusantium error distinctio natus.
+    Magni dolor maiores et perspiciatis quae ab sit saepe nisi cupiditate aut, quasi, quos totam asperiores voluptatum alias! Alias dolorem debitis eligendi nobis ipsum quo at aspernatur tempora fugiat doloribus. <br>
+    Sequi neque quia id, voluptatem inventore nulla hic aperiam qui alias minus voluptatibus beatae exercitationem, fugit reprehenderit reiciendis aut cumque, ipsa dolores? Possimus totam quasi unde facere ipsum in eveniet.</p>
+
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti earum at, laudantium commodi ipsa magni in possimus explicabo fugit officiis nemo architecto dignissimos vitae molestias odio dolor tempora, ullam aut.
+    Eius nam exercitationem esse ut aliquid pariatur unde placeat? Error sunt consequatur tempora dicta! Consectetur error odit qui nihil velit in at nam minima! Sint nesciunt consequuntur officia veritatis neque! <br>
+    Amet, possimus nesciunt vitae impedit autem accusantium eaque dolore! Rem provident aut cumque pariatur officiis optio molestiae, molestias, atque animi obcaecati vitae sapiente nostrum suscipit modi accusantium error distinctio natus.
+    Magni dolor maiores et perspiciatis quae ab sit saepe nisi cupiditate aut, quasi, quos totam asperiores voluptatum alias! Alias dolorem debitis eligendi nobis ipsum quo at aspernatur tempora fugiat doloribus. <br>
+    Sequi neque quia id, voluptatem inventore nulla hic aperiam qui alias minus voluptatibus beatae exercitationem, fugit reprehenderit reiciendis aut cumque, ipsa dolores? Possimus totam quasi unde facere ipsum in eveniet.</p>
+
+
+
+    <!-- Tags Section -->
+
+<div class="mt-20">
+    <h2 class="text-2xl">Tags</h2>
+    <div class="flex mt-5">
+       @for(tag of ['tag1','tag2','tag3','tag4', 'tag5']; track tag){
+         <a [routerLink]="['/tags', tag]" class="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md
+         hover:bg-blue-600 transition-colors duration-300">
+         {{tag}}
+        </a>
+       }
+    </div>
+</div>
+
+
+
+     <!-- Comments Section -->
+
+     <div class="mt-20">
+        <h2 class="text-2xl mb-10">
+            Comments
+        </h2>
+
+
+
+        <div class="flex mb-4">
+            <img class="w-10 h-10 rounded-full mr-4" src="img.webp" alt="">
+
+            <textarea name="" id="" 
+            class="w-full h-[100PX] border-solid border
+             border-gray-400 bg-white rounded-md p-4" 
+             placeholder="Enter your comment"></textarea>
+        </div>
+
+
+        <button class="bg-blue-500 text-white px-4 py-2 mb-10 rounded-md 
+        hover:bg-blue-600 transition-colors duration-300 float-right">
+        PostComment</button>
+
+
+        @for(item of [1,2,3,4,5]; track item){
+    <div class="flex w-full mb-5">
+            <div>
+                <img class="w-10 h-10 rounded-full mr-4" src="img.webp" alt="">
+            </div>
+       
+            <div class="border border-solid border-gray-300 grow p-4 rounded-xl">
+                <div class="font-bold">Dev Nki</div>
+                <div class="text-gray-500 mb-4">November 24, 2026</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+            </div>
+        </div>
+        }
+        
+     </div>

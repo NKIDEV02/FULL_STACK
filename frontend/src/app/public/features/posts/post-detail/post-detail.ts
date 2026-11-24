@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
   selector: 'app-post-detail',
-  styleUrl: './post-detail.css',
+  standalone: true,
+  imports: [
+    RouterLink
+  ],
   templateUrl: './post-detail.html',
+  styleUrl: './post-detail.css'
 })
 export class PostDetail {}
